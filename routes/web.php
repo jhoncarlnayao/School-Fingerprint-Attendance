@@ -7,7 +7,10 @@ use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Teacher\AttendanceController as TeacherAttendanceController;
 use App\Http\Controllers\Teacher\DashboardController as TeacherDashboardController;
+use App\Http\Controllers\Teacher\SubjectAttendanceController;
+use App\Http\Controllers\Admin\SubjectAttendanceController as AdminSubjectAttendanceController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
@@ -59,6 +62,9 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('/attendance/students/{student}/export', [AttendanceController::class, 'exportCsv'])->name('attendance.export');
         Route::post('/attendance/students/{student}/mark', [AttendanceController::class, 'markManual'])->name('attendance.mark');
 
+        // Subject Attendance — read-only view across all teachers/subjects.
+        Route::get('/subject-attendance', [AdminSubjectAttendanceController::class, 'index'])->name('subject-attendance.index');
+
         // Announcement — posting now also sends the SMTP email in one step,
         // so there is no separate "Email Announcement" page/route anymore.
         Route::get('/announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
@@ -73,4 +79,17 @@ Route::middleware(['auth', 'role:teacher'])
     ->name('teacher.')
     ->group(function () {
         Route::get('/dashboard', [TeacherDashboardController::class, 'index'])->name('dashboard');
+
+        // Attendance — read-only view of the teacher's own section, plus
+        // manual override for their own students (no admin-only actions).
+        Route::get('/attendance', [TeacherAttendanceController::class, 'index'])->name('attendance.index');
+        Route::get('/attendance/students/{student}', [TeacherAttendanceController::class, 'show'])->name('attendance.show');
+        Route::get('/attendance/students/{student}/export', [TeacherAttendanceController::class, 'exportCsv'])->name('attendance.export');
+        Route::post('/attendance/students/{student}/mark', [TeacherAttendanceController::class, 'markManual'])->name('attendance.mark');
+
+        // Subject Attendance — per-class-period check with automatic
+        // "your child was present in [subject]" guardian email.
+        Route::get('/subject-attendance', [SubjectAttendanceController::class, 'index'])->name('subject-attendance.index');
+        Route::post('/subject-attendance', [SubjectAttendanceController::class, 'store'])->name('subject-attendance.store');
+        Route::get('/subject-attendance/students/{student}', [SubjectAttendanceController::class, 'show'])->name('subject-attendance.show');
     });

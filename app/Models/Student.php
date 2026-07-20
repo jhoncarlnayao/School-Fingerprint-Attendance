@@ -67,6 +67,11 @@ class Student extends Model
         return $this->hasMany(AttendanceLog::class);
     }
 
+    public function subjectAttendanceLogs()
+    {
+        return $this->hasMany(SubjectAttendanceLog::class);
+    }
+
     /**
      * Whether this student has a fingerprint template ID on file.
      * (Enrollment itself happens on the scanner's own software — BANTAY

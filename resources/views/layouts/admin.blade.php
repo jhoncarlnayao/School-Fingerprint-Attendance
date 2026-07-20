@@ -8,25 +8,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --dark:#152B0C;
-  --dark2:#1B3812;
-  --primary:#3F5A2A;
-  --secondary:#8BC34A;
-  --bg:#F3F6F2;
+  --dark:#1A1A1A;
+  --dark2:#111111;
+  --primary:#FF7A3D;
+  --primary2:#E8672A;
+  --secondary:#FFB088;
+  --bg:#ECECEA;
   --card:#FFFFFF;
-  --border:#E5E7EB;
-  --text:#1F2937;
-  --sub:#6B7280;
+  --border:#ECECEC;
+  --text:#1A1A1A;
+  --sub:#8A8A8E;
   --success:#22C55E;
-  --warning:#F59E0B;
-  --danger:#EF4444;
+  --warning:#F5A623;
+  --danger:#E5484D;
 }
 *{box-sizing:border-box;}
-body{margin:0; background:#E7EAE5; color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
 .font-display{font-family:'Poppins',sans-serif;}
 a{text-decoration:none; color:inherit;}
 ::-webkit-scrollbar{width:8px;height:8px;}
-::-webkit-scrollbar-thumb{background:#d7ddd9;border-radius:8px;}
+::-webkit-scrollbar-thumb{background:#dcdcda;border-radius:8px;}
 
 html, body{height:100%;}
 .page-wrap{width:100%; margin:0; padding:0;}
@@ -34,101 +35,109 @@ html, body{height:100%;}
 
 /* ===== Topbar ===== */
 .topbar{
-  height:76px; background:#fff; border-bottom:1px solid var(--border);
-  display:flex; align-items:center; justify-content:space-between; padding:0 28px;
+  height:60px; background:#fff; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; padding:0 22px;
 }
-.brand{display:flex; align-items:center; gap:10px;}
+.brand{display:flex; align-items:center; gap:8px;}
 .brand-icon{
-  width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg, var(--secondary), var(--primary));
-  display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#fff; font-weight:800; font-family:'Poppins',sans-serif;
+  width:32px; height:32px; border-radius:9px; background:linear-gradient(135deg, var(--primary), var(--primary2));
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#fff; font-weight:800; font-family:'Poppins',sans-serif; font-size:13px;
 }
-.brand-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:17px; color:var(--dark);}
+.brand-icon svg{width:17px; height:17px;}
+.brand-name{font-family:'Poppins',sans-serif; font-weight:800; font-size:14.5px; color:var(--dark);}
 
-.tabs{display:flex; align-items:center; gap:4px; background:#F3F6F2; border-radius:99px; padding:4px;}
-.tab{padding:9px 18px; border-radius:99px; font-size:13.5px; font-weight:600; color:var(--sub); cursor:pointer;}
+.tabs{display:flex; align-items:center; gap:2px; background:#F1F1EF; border-radius:99px; padding:4px;}
+.tab{padding:8px 15px; border-radius:99px; font-size:12px; font-weight:600; color:var(--sub); cursor:pointer;}
 .tab.active{background:var(--dark); color:#fff;}
 .tab:hover:not(.active){color:var(--text);}
 
-.top-right{display:flex; align-items:center; gap:12px;}
-.icon-btn{width:38px; height:38px; border-radius:10px; background:#F3F6F2; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--sub); position:relative;}
-.icon-btn:hover{background:#E7F3DE; color:var(--primary);}
-.icon-btn .dot{position:absolute; top:6px; right:6px; width:7px; height:7px; border-radius:50%; background:var(--danger);}
-.user-chip{display:flex; align-items:center; gap:10px; padding:5px 10px 5px 5px; border-radius:12px; cursor:pointer;}
-.user-chip:hover{background:#F3F6F2;}
-.user-avatar{width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--secondary), var(--primary)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:13px; font-family:'Poppins',sans-serif;}
-.user-name{font-size:13px; font-weight:600; color:var(--text); line-height:1.3;}
-.user-email{font-size:11px; color:var(--sub);}
+.top-right{display:flex; align-items:center; gap:8px;}
+.icon-btn{width:36px; height:36px; border-radius:50%; background:#F1F1EF; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--sub); position:relative;}
+.icon-btn:hover{background:#FFE9DD; color:var(--primary2);}
+.icon-btn .dot{position:absolute; top:6px; right:7px; width:6px; height:6px; border-radius:50%; background:var(--danger); border:1.5px solid #fff;}
+.user-chip{display:flex; align-items:center; gap:8px; padding:4px 10px 4px 4px; border-radius:99px; cursor:pointer;}
+.user-chip:hover{background:#F1F1EF;}
+.user-avatar{width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, var(--secondary), var(--primary2)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:12px; font-family:'Poppins',sans-serif;}
+.user-name{font-size:12px; font-weight:600; color:var(--text); line-height:1.25;}
+.user-email{font-size:10.5px; color:var(--sub);}
 
 /* ===== Shell body ===== */
 .shell-body{display:flex; flex:1; min-height:0;}
 
-.sidebar{width:76px; background:#fff; border-right:1px solid var(--border); flex-shrink:0; display:flex; flex-direction:column; align-items:center; padding:20px 0; gap:8px;}
+.sidebar{width:64px; background:#fff; border-right:1px solid var(--border); flex-shrink:0; display:flex; flex-direction:column; align-items:center; padding:16px 0; gap:6px;}
 .sb-icon{
-  width:46px; height:46px; border-radius:14px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+  width:40px; height:40px; border-radius:13px; display:flex; align-items:center; justify-content:center; cursor:pointer;
   color:var(--sub); position:relative;
 }
-.sb-icon:hover{background:#F1F4F1; color:var(--primary);}
+.sb-icon svg{width:17px; height:17px;}
+.sb-icon:hover{background:#F6F6F4; color:var(--primary2);}
 .sb-icon.active{background:var(--dark); color:#fff;}
 .sb-icon .sb-tooltip{
-  position:absolute; left:58px; top:50%; transform:translateY(-50%); background:var(--dark); color:#fff; font-size:11.5px;
-  font-weight:600; padding:7px 11px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .12s ease;
+  position:absolute; left:50px; top:50%; transform:translateY(-50%); background:var(--dark); color:#fff; font-size:11px;
+  font-weight:600; padding:6px 10px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .12s ease; z-index:40;
 }
 .sb-icon:hover .sb-tooltip{opacity:1;}
 .sb-spacer{flex:1;}
 
-.content{flex:1; min-width:0; padding:30px 32px 40px;}
+.content{flex:1; min-width:0; padding:22px 24px 32px;}
 
-.page-head{margin-bottom:26px;}
-.page-title{font-family:'Poppins',sans-serif; font-weight:700; font-size:26px; color:var(--dark); margin:0 0 4px;}
-.page-sub{font-size:13.5px; color:var(--sub); margin:0;}
+.page-head{margin-bottom:18px;}
+.page-title{font-family:'Poppins',sans-serif; font-weight:700; font-size:21px; color:var(--dark); margin:0 0 3px;}
+.page-sub{font-size:12.5px; color:var(--sub); margin:0;}
 
-.card{background:#fff; border:1px solid var(--border); border-radius:16px;}
+.card{background:#fff; border:none; border-radius:20px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
 
-.btn{display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px; font-size:13.5px; font-weight:600; cursor:pointer; border:1px solid var(--border); background:#fff; color:var(--text);}
-.btn:hover{background:#F6F8F7;}
-.btn-primary{background:var(--dark); color:#fff; border-color:var(--dark);}
+.btn{display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:999px; font-size:12.5px; font-weight:600; cursor:pointer; border:none; background:#F1F1EF; color:var(--text);}
+.btn:hover{background:#E7E7E4;}
+.btn-primary{background:var(--dark); color:#fff;}
 .btn-primary:hover{background:var(--dark2);}
-.btn-outline{background:transparent; border:1px solid var(--dark); color:var(--dark);}
-.btn-outline:hover{background:#F1F4F1;}
+.btn-outline{background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.btn-outline:hover{background:#FAFAF9;}
 
-.badge{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:99px;}
-.badge-green{background:#E7F3DE; color:var(--primary);}
-.badge-orange{background:#FDECD8; color:#C2660B;}
-.badge-red{background:#FBDADA; color:var(--danger);}
+.badge{display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; padding:4px 10px; border-radius:99px;}
+.badge-green{background:#DFF3E3; color:#1F8A45;}
+.badge-orange{background:#FFE9DD; color:var(--primary2);}
+.badge-red{background:#FBE1E1; color:var(--danger);}
 
-.form-field{margin-bottom:18px;}
-.form-field label{display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:6px;}
+.form-field{margin-bottom:14px;}
+.form-field label{display:block; font-size:12px; font-weight:600; color:var(--text); margin-bottom:5px;}
 .form-field input,
 .form-field select,
 .form-field textarea{
-  width:100%; padding:11px 14px; border:1px solid var(--border); border-radius:10px;
-  font-size:13.5px; font-family:'Inter',sans-serif; outline:none; background:#fff; color:var(--text);
+  width:100%; padding:10px 13px; border:1px solid var(--border); border-radius:12px;
+  font-size:12.5px; font-family:'Inter',sans-serif; outline:none; background:#FAFAF9; color:var(--text);
 }
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus{border-color:var(--secondary); box-shadow:0 0 0 3px rgba(139,195,74,.18);}
-.field-error{color:var(--danger); font-size:12px; margin-top:6px;}
-.form-hint{font-size:12px; color:var(--sub); margin-top:6px;}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus{border-color:var(--primary); box-shadow:0 0 0 3px rgba(255,122,61,.15); background:#fff;}
+.field-error{color:var(--danger); font-size:11.5px; margin-top:5px;}
+.form-hint{font-size:11.5px; color:var(--sub); margin-top:5px;}
 
-.alert{padding:12px 14px; border-radius:10px; font-size:13px; margin-bottom:18px;}
-.alert-success{background:#E7F3DE; color:var(--primary);}
-.alert-error{background:#FBDADA; color:var(--danger);}
-.alert-warning{background:#FEF3D6; color:#92620A; border:1px solid #F5D77E;}
+.alert{padding:11px 15px; border-radius:14px; font-size:12.5px; margin-bottom:16px;}
+.alert-success{background:#DFF3E3; color:#1F6B36;}
+.alert-error{background:#FBE1E1; color:var(--danger);}
+.alert-warning{background:#FFF0D6; color:#8A5B00;}
+
+table.tbl{width:100%; border-collapse:collapse; font-size:12.5px;}
+table.tbl thead th{text-align:left; padding:11px 18px; font-size:10px; text-transform:uppercase; letter-spacing:.03em; color:var(--sub); font-weight:700; border-bottom:1px solid #F2F2F0;}
+table.tbl tbody td{padding:11px 18px; border-bottom:1px solid #F5F5F3;}
+table.tbl tbody tr:last-child td{border-bottom:none;}
+table.tbl tbody tr:hover{background:#FAFAF9;}
 
 /* ===== Notification bell dropdown ===== */
 .notif-wrap{position:relative;}
 .notif-panel{
-  position:absolute; top:48px; right:0; width:360px; max-height:420px; overflow-y:auto;
-  background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 12px 32px rgba(21,43,12,.16);
+  position:absolute; top:46px; right:0; width:340px; max-height:400px; overflow-y:auto;
+  background:#fff; border:none; border-radius:18px; box-shadow:0 12px 32px rgba(0,0,0,.12);
   z-index:50; display:none;
 }
 .notif-panel.open{display:block;}
-.notif-head{padding:14px 16px; border-bottom:1px solid var(--border); font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:space-between;}
-.notif-item{padding:12px 16px; border-bottom:1px solid #F1F2F0; display:flex; gap:10px; align-items:flex-start;}
+.notif-head{padding:14px 16px; border-bottom:1px solid #F2F2F0; font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:space-between;}
+.notif-item{padding:11px 16px; border-bottom:1px solid #F5F5F3; display:flex; gap:10px; align-items:flex-start;}
 .notif-item:last-child{border-bottom:none;}
-.notif-dot{width:8px; height:8px; border-radius:50%; background:var(--secondary); margin-top:5px; flex-shrink:0;}
+.notif-dot{width:7px; height:7px; border-radius:50%; background:var(--primary); margin-top:5px; flex-shrink:0;}
 .notif-dot.warn{background:var(--danger);}
-.notif-text{font-size:12.5px; color:var(--text); line-height:1.45;}
-.notif-time{font-size:11px; color:var(--sub); margin-top:2px;}
-.notif-empty{padding:26px 16px; text-align:center; color:var(--sub); font-size:12.5px;}
+.notif-text{font-size:12px; color:var(--text); line-height:1.45;}
+.notif-time{font-size:10.5px; color:var(--sub); margin-top:2px;}
+.notif-empty{padding:24px 16px; text-align:center; color:var(--sub); font-size:12px;}
 
 @media (max-width:900px){
   .tabs{display:none;}
@@ -142,7 +151,12 @@ html, body{height:100%;}
 
     <div class="topbar">
       <div class="brand">
-        <div class="brand-icon">B</div>
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="brand-name">BANTAY</div>
       </div>
 
@@ -157,7 +171,7 @@ html, body{height:100%;}
 
       <div class="top-right">
         <div class="icon-btn" title="Search">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
         @php
           $__navNotifications = \App\Models\ActivityLog::with('user')->latest()->take(8)->get();
@@ -165,7 +179,7 @@ html, body{height:100%;}
         @endphp
         <div class="notif-wrap">
           <div class="icon-btn" title="Notifications" onclick="document.getElementById('notif-panel').classList.toggle('open')">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             @if($__navUnread > 0)<span class="dot"></span>@endif
           </div>
           <div class="notif-panel" id="notif-panel">
